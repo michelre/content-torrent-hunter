@@ -70,6 +70,7 @@ def process_titles():
             tokens = nltk.word_tokenize(torrent['title'])
             index_stop_words = token_action(slugify_tokens(tokens), stop_words)
             title = ' '.join(tokens[:index_stop_words])
+            print title
             infos.append(dict(slug=torrent['slug'], title=title, description=retrieve_description(title)))
         insert_info(infos)
         i += limit
